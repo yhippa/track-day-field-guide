@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Day Field Guide</title>
+<style>
+  :root {
+    --red: #c0392b;
+    --dark: #1a1a1a;
+    --mid: #2c2c2c;
+    --light: #3d3d3d;
+    --text: #e8e8e8;
+    --muted: #a0a0a0;
+    --accent: #e67e22;
+    --green: #27ae60;
+    --yellow: #f1c40f;
+    --blue: #2980b9;
+    --border: #444;
+    --card-bg: #252525;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Georgia', serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--mid);
+    border-bottom: 3px solid var(--red);
+    padding: 48px 40px 36px;
+    text-align: center;
+  }
+  header .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: 42px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  header .subtitle {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  header .sources {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  header .source-tag {
+    background: var(--light);
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    color: var(--muted);
+    border-radius: 2px;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 48px 32px; }
+
+  /* ── Section headers ── */
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  h3 {
+    font-size: 17px;
+    color: var(--accent);
+    margin: 24px 0 10px;
+    font-weight: normal;
+    font-style: italic;
+  }
+  h4 {
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    color: var(--yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0 8px;
+  }
+  p { margin-bottom: 14px; color: #d5d5d5; }
+  strong { color: #fff; font-weight: bold; }
+  em { color: var(--accent); font-style: italic; }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    padding: 24px 28px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .card.green { border-left-color: var(--green); }
+  .card.blue { border-left-color: var(--blue); }
+  .card.yellow { border-left-color: var(--yellow); }
+  .card.orange { border-left-color: var(--accent); }
+
+  /* ── Pull quotes ── */
+  blockquote {
+    border-left: 3px solid var(--muted);
+    padding: 12px 24px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-style: normal;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    color: #666;
+  }
+
+  /* ── Key Insight box ── */
+  .key-insight {
+    background: #1e1200;
+    border: 1px solid var(--accent);
+    border-left: 5px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .key-insight .label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .key-insight p { color: #e8d5b0; margin: 0; font-size: 15px; }
+
+  /* ── The Traction Circle ── */
+  .circle-diagram {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+  }
+  .circle-outer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  .circle-svg { width: 100%; height: 100%; }
+
+  /* ── Phase table ── */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .phase-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 2px;
+  }
+  .phase-num {
+    font-family: 'Courier New', monospace;
+    font-size: 36px;
+    color: var(--red);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .phase-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .phase-card p { font-size: 14px; color: #bbb; margin: 0; }
+
+  /* ── Skill zones ── */
+  .skill-zones {
+    display: grid;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .zone {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 18px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .zone-label {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    min-width: 90px;
+    padding-top: 2px;
+  }
+  .zone-label.talent { color: #888; }
+  .zone-label.excellence { color: var(--green); }
+  .zone-label.genius { color: var(--yellow); }
+  .zone-desc { font-size: 14px; color: #bbb; }
+  .zone-desc strong { color: #ddd; }
+  .zone-bar {
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .zone-bar.talent { background: #555; width: 85%; }
+  .zone-bar.excellence { background: var(--green); width: 35%; }
+  .zone-bar.genius { background: var(--yellow); width: 15%; }
+
+  /* ── Progression tracker ── */
+  .progression {
+    display: grid;
+    gap: 0;
+    margin: 24px 0;
+    counter-reset: progression;
+  }
+  .prog-step {
+    display: flex;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    counter-increment: progression;
+  }
+  .prog-step:last-child { border-bottom: none; }
+  .prog-num {
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    color: var(--red);
+    opacity: 0.5;
+    min-width: 32px;
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .prog-content h4 { margin: 0 0 8px; }
+  .prog-content p { font-size: 14px; color: #bbb; margin: 0; }
+
+  /* ── Mistake table ── */
+  .mistake-list { display: grid; gap: 16px; margin: 24px 0; }
+  .mistake {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 2px;
+  }
+  .mistake-side .label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .mistake-side.problem .label { color: var(--red); }
+  .mistake-side.fix .label { color: var(--green); }
+  .mistake-side p { font-size: 14px; color: #bbb; margin: 0; }
+
+  /* ── Rules list ── */
+  .rules {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .rules li {
+    padding: 14px 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    font-size: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 2px;
+  }
+  .rules li .num {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--red);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+
+  /* ── Section dividers ── */
+  .section { margin: 64px 0; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* ── Session checklist ── */
+  .checklist {
+    display: grid;
+    gap: 8px;
+    margin: 20px 0;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-size: 14px;
+    color: #bbb;
+  }
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Traction Circle SVG legend ── */
+  .tc-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .tc-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #bbb;
+  }
+  .tc-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--mid);
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    header { padding: 32px 20px; }
+    header h1 { font-size: 28px; }
+    .container { padding: 32px 20px; }
+    .phase-grid { grid-template-columns: 1fr; }
+    .mistake { grid-template-columns: 1fr; }
+    .tc-legend { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Upper Novice → Intermediate</div>
+  <h1>Track Day Field Guide</h1>
+  <p class="subtitle">The concepts that matter most, synthesized from four foundational books</p>
+  <div class="sources">
+    <span class="source-tag">Going Faster — Skip Barber</span>
+    <span class="source-tag">Speed Secrets — Ross Bentley</span>
+    <span class="source-tag">Ultimate Speed Secrets — Ross Bentley</span>
+    <span class="source-tag">Drive to Win — Carroll Smith</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <h2>The One Model That Explains Everything</h2>
+
+    <p>Every technique in every one of these books is a consequence of one physical reality: <strong>a tire has a fixed budget of total traction force</strong>, and at any moment you're spending that budget on some combination of braking, cornering, and acceleration. Spend it all on braking and you can't turn. Spend it all on cornering and you can't accelerate. This budget is the <em>Traction Circle</em>.</p>
+
+    <div class="circle-diagram">
+      <div class="circle-outer">
+        <svg class="circle-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer limit circle -->
+          <circle cx="150" cy="150" r="120" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="6 4"/>
+          <!-- Inner reference circle -->
+          <circle cx="150" cy="150" r="80" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Center dot -->
+          <circle cx="150" cy="150" r="4" fill="#555"/>
+
+          <!-- Axes -->
+          <line x1="150" y1="20" x2="150" y2="280" stroke="#333" stroke-width="1"/>
+          <line x1="20" y1="150" x2="280" y2="150" stroke="#333" stroke-width="1"/>
+
+          <!-- Labels -->
+          <text x="150" y="14" text-anchor="middle" fill="#c0392b" font-size="11" font-family="Courier New" letter-spacing="1">BRAKING</text>
+          <text x="150" y="294" text-anchor="middle" fill="#27ae60" font-size="11" font-family="Courier New" letter-spacing="1">ACCEL</text>
+          <text x="16" y="154" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="Courier New" transform="rotate(-90 16 154)">CORNER L</text>
+          <text x="284" y="154" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="Courier New" transform="rotate(90 284 154)">CORNER R</text>
+
+          <!-- Example path: brake → corner → accelerate (riding the rim) -->
+          <!-- This represents the ideal path through a right-hand corner -->
+          <path d="M 150 38
+                   Q 190 40 225 90
+                   Q 260 140 240 185
+                   Q 210 240 150 255
+                   Q 100 260 80 220"
+                fill="none" stroke="#e67e22" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="150" cy="38" r="5" fill="#c0392b"/>
+          <circle cx="80" cy="220" r="5" fill="#27ae60"/>
+          <circle cx="240" cy="185" r="5" fill="#2980b9"/>
+
+          <!-- Legend dots on path -->
+          <text x="160" y="36" fill="#c0392b" font-size="10" font-family="Georgia" font-style="italic">braking</text>
+          <text x="248" y="190" fill="#2980b9" font-size="10" font-family="Georgia" font-style="italic">apex</text>
+          <text x="42" y="230" fill="#27ae60" font-size="10" font-family="Georgia" font-style="italic">power</text>
+
+          <!-- "Ride the rim" label -->
+          <text x="150" y="148" text-anchor="middle" fill="#555" font-size="9" font-family="Courier New" letter-spacing="1">RIDE THE RIM</text>
+          <text x="150" y="160" text-anchor="middle" fill="#444" font-size="8" font-family="Courier New">= no wasted traction</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="key-insight">
+      <div class="label">The Principle</div>
+      <p>The orange line shows the ideal path through one corner: maximum braking that gradually transitions into cornering, then cornering that transitions into acceleration. <strong>The goal is to always be using all available traction</strong> — the circle is always full, just the direction changes. Any gap between what you're doing and the rim of the circle is wasted grip and wasted time.</p>
+    </div>
+
+    <p>This is why "brake, then turn, then accelerate" is wrong. All three overlap. Braking trails off as cornering builds. Cornering trails off as acceleration builds. The transitions are smooth arcs on the circle, not right angles.</p>
+
+    <h3>What this means practically</h3>
+    <p>Every rule you'll read below — trail braking, late apex, releasing the car on exit, early throttle — is just the traction circle applied to a specific moment in the corner. When you internalize the model, the individual rules stop being rules and start being obvious.</p>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <h2>The Four Phases of a Corner</h2>
+
+    <p>Every corner, regardless of shape or speed, has the same structure. Carroll Smith defines it in <em>Drive to Win</em> and it maps directly onto the traction circle. Understand the phases and you stop thinking about corners as single events — you start seeing them as a sequence you can analyze and improve piece by piece.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <div class="phase-name">Turn-In</div>
+        <p>Braking pressure is fading. You begin to steer. The car's nose must come down <em>gradually</em> — a sudden lift transfers weight rearward and kills front traction exactly when you need it. In fast corners, you almost wish the car in. In slow ones, you're more deliberate.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <div class="phase-name">Turn-In → Throttle-On</div>
+        <p><strong>The most important phase.</strong> How fast you can carry the car through this arc — while still arriving at the throttle-on point with the car balanced — determines your entire exit speed. Corner exit speed is set here, not at the apex.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <div class="phase-name">Pure Cornering</div>
+        <p>A brief moment of maximum cornering force and neutral throttle — just enough gas to maintain speed. This isn't coasting. It's stabilizing the car's attitude before power goes on. It may only last a fraction of a second in a 90° corner.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">04</div>
+        <div class="phase-name">Corner Exit</div>
+        <p>The payoff. Power goes on, steering unwinds, the car opens toward the exit. <strong>He who gets the power down first wins.</strong> Not he who carried the most speed in. Everything before this phase exists to make this phase as early and as clean as possible.</p>
+      </div>
+    </div>
+
+    <div class="key-insight">
+      <div class="label">The Counterintuitive Truth</div>
+      <p>Most drivers focus on the apex — where to clip it, whether they hit it. But the apex is just a consequence of getting Phases 1 and 2 right. Stop fixating on the apex and start fixating on the <strong>quality of Phase 2</strong>: is the car balanced? Am I arriving at the throttle-on point smoothly, or am I still managing an entry I overcooked?</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <h2>The Fundamental Truths About Line</h2>
+
+    <p>These are Carroll Smith's "Fundamental Truths" — the principles that govern where on the road you should be and why. They're not rules you memorize; they're consequences of physics that you eventually discover independently if you drive long enough. Better to just know them now.</p>
+
+    <ul class="rules">
+      <li>
+        <span class="num">01</span>
+        <span><strong>The late apex.</strong> For most corners, the ideal apex is past the geometric center of the corner. A late apex opens the exit radius and allows earlier power application — the most valuable thing in the corner. It also provides an insurance margin at exit. Downside: tighter Phase 2, slower apex speed, open door on the inside.</span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <span><strong>Faster corner = earlier apex.</strong> In slow corners, you trade entry speed for an open exit because you can accelerate fast enough to make it worthwhile. In fast corners, you <em>can't</em> accelerate fast enough to recover the speed you sacrifice — so carry it through. The faster the corner, the earlier and rounder the apex, the smoother the inputs, the more you finesse rather than rotate.</span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <span><strong>You must release the car on exit.</strong> After the apex, the steering wheel should only be unwinding. If you're adding lock after the apex, you turned in too early. Adding lock after the apex means understeer drag — you're fighting the car instead of accelerating. This is the most common error at every level below expert.</span>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <span><strong>Some entry understeer is correct.</strong> For the rear tires to have traction available for acceleration, they can't be at 100% of their cornering capacity during Phases 2 and 3. So fast cars push a little on entry. If you're fighting the push aggressively, you're sacrificing rear grip reserve. Corner-exit oversteer looks heroic and is slower than mild entry understeer with early throttle.</span>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <h2>What "The Limit" Actually Feels Like</h2>
+
+    <p>This is Carroll Smith's slip-angle framework — and it's the clearest model any of the books offers for understanding where you are relative to the car's actual capability.</p>
+
+    <p>The tire's cornering force increases as slip angle increases, peaks, and then falls off. The <em>shape</em> of that curve is important: it's not a cliff, it's a rounded hill. There's a zone of maximum-ish performance on both sides of the peak. The question is which zone you're operating in.</p>
+
+    <div class="skill-zones">
+      <div class="zone">
+        <div>
+          <div class="zone-label talent">Talent</div>
+          <div class="zone-bar talent"></div>
+        </div>
+        <div class="zone-desc">
+          <strong>Wide operating band, both sides of the peak.</strong> The driver waits for the tires to break loose (squeal, slide, snap) before reacting. Reacts to the limit rather than sensing it. Speed is inconsistent. This is where most HPDE drivers live, and there's nothing wrong with it — it's where learning happens.
+        </div>
+      </div>
+      <div class="zone">
+        <div>
+          <div class="zone-label excellence">Excellence</div>
+          <div class="zone-bar excellence"></div>
+        </div>
+        <div class="zone-desc">
+          <strong>Operating just below peak slip angle, intentionally.</strong> ~95% of maximum cornering force, but the tire isn't being stressed. The driver can feel where the tires are before they protest. Consistent, precise, and easy on equipment. This is the target. It takes years to develop, not sessions.
+        </div>
+      </div>
+      <div class="zone">
+        <div>
+          <div class="zone-label genius">Genius</div>
+          <div class="zone-bar genius"></div>
+        </div>
+        <div class="zone-desc">
+          <strong>Deliberately at or just past peak, in qualifying or a dice.</strong> Very narrow margin, very high reward. Where excellence-level drivers go on purpose for a single lap. Not sustainable for race distance. The line between excellence and genius is much thinner than the line between talent and excellence.
+        </div>
+      </div>
+    </div>
+
+    <div class="key-insight">
+      <div class="label">What This Means For You Now</div>
+      <p>The goal at your level is not to get to "Excellence" — it's to narrow the Talent band. Start feeling what the tires are doing <em>before</em> they protest rather than <em>after</em>. The feedback is there: steering weight changes, subtle vibrations, the way the car tracks. You're learning to read those signals earlier. That's the whole game. It takes seat time, not technique hacks.</p>
+    </div>
+
+    <h3>The steering feedback signal</h3>
+    <p>Carroll Smith notes that <strong>self-aligning torque peaks slightly before cornering force peaks</strong>. In plain terms: the steering gets lighter just before the tires hit their limit. If you wait for the steering to go completely light before backing off, you've already passed the cornering force peak. The goal is to work in the range where steering feel is still building — that's the Excellence zone. This is the feedback signal that becomes clearer with experience.</p>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <h2>Where to Look and How to Navigate</h2>
+
+    <p>This section is underrated. All four books address it, Smith most directly, and it's one of the fastest ways to improve — entirely mental, no car required.</p>
+
+    <div class="card blue">
+      <h4>The Core Rule</h4>
+      <p><strong>Look where you want to go, not where you are.</strong> At the limit, you have almost no influence over where the car goes in the next 20 feet — so looking there is useless. Your brain processes what your eyes give it. If you're looking at the front bumper or the car in front of you, information arrives faster than your brain can use it. If you look far ahead, everything slows down and you have time to respond.</p>
+    </div>
+
+    <h3>Reference points — the connect-the-dots system</h3>
+    <p>Consciously or not, every driver navigates by reference points: fixed landmarks that trigger responses. A discolored patch of pavement that says "brake here." A shadow line at turn-in. The curb edge at the apex. A crack in the asphalt at track-out. Smith calls it connect-the-dots — you're linking points, not following a continuous line.</p>
+
+    <p><strong>The more reference points, the smoother the driving.</strong> With few landmarks, the scene rushes at you in jerks. With many, it flows. Deliberately identify and name your reference points each session — especially in the corners where you feel vague or slow.</p>
+
+    <h3>The visualization test</h3>
+    <p>At home, try to mentally drive the circuit — smoothly, without hesitation, close to your actual lap time. Where do you stall or go vague? Those are the corners where your mental map is incomplete, which is almost always where you're losing time. Filling in reference points for those corners is one of the highest-return things you can do between sessions.</p>
+
+    <blockquote>
+      "If you cannot drive the track with your eyes closed — without hesitation and pretty darn close to your actual lap time — the chances are that you haven't picked up enough reference points."
+      <cite>— Carroll Smith, Drive to Win</cite>
+    </blockquote>
+
+    <h3>Where specifically to look at each point</h3>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>On the straight approaching the braking zone: look to your braking marker</div>
+      <div class="check-item"><div class="check-box"></div>In the braking zone: look to your turn-in mark</div>
+      <div class="check-item"><div class="check-box"></div>At turn-in: look to the apex</div>
+      <div class="check-item"><div class="check-box"></div>At the apex: look to the exit / track-out point</div>
+      <div class="check-item"><div class="check-box"></div>At exit: look down the next straight</div>
+    </div>
+    <p style="font-size:13px; color: var(--muted);">Eyes should always be one phase ahead of where the car is. If you're at turn-in and still looking at the braking marker, you're already behind.</p>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <h2>Smooth Inputs — What It Actually Means</h2>
+
+    <p>Every book makes smoothness sound like an aesthetic preference. It isn't. It's physics. Ross Bentley in <em>Speed Secrets</em> makes the mechanical case clearly: <strong>any abrupt input causes a weight transfer spike that momentarily reduces tire contact and grip</strong>. Snap the wheel, stomp the brake, stab the throttle — in each case, you've just reduced your traction budget at the worst moment.</p>
+
+    <div class="card">
+      <h4>The Four Inputs — What Smooth Means For Each</h4>
+      <p><strong>Steering:</strong> Turn-in should be a smooth, progressive arc. No jabbing. In fast corners especially, any abruptness upsets the car's attitude when it's already on the limit. Practice "thinking" the car into the corner rather than physically cranking it in.</p>
+      <p style="margin-top:12px"><strong>Braking:</strong> Squeeze to maximum, then progressively trail off. Don't stab the pedal. Don't release it suddenly. The release of the brakes at turn-in is the transition from braking force to cornering force on the traction circle — it should be a smooth arc, not a right angle.</p>
+      <p style="margin-top:12px"><strong>Throttle:</strong> Roll it on. At corner exit, the transition from neutral throttle to full throttle should be progressive — fast, but progressive. The earlier and smoother you apply it, the more the car can use it without snapping into oversteer or pushing into understeer.</p>
+      <p style="margin-top:12px"><strong>Gear changes:</strong> Smooth enough to be heard but not felt. A good downshift shouldn't upset the car's balance. A bad one can induce sudden oversteer at exactly the wrong time — when the car is already loaded in Phase 2.</p>
+    </div>
+
+    <blockquote>
+      "The hands and feet should feel like they belong to a pianist, not a boxer."
+      <cite>— paraphrased from Speed Secrets, Ross Bentley</cite>
+    </blockquote>
+
+    <h3>Smoothness is also a diagnostic tool</h3>
+    <p>If you need to make a sudden corrective input — catch a slide, add lock to avoid running wide — that's information. Something earlier in the corner wasn't right. Smooth laps aren't just faster; they're telling you that Phases 1–3 were executed correctly. Busy laps tell you something was off at the entry.</p>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 07</div>
+    <h2>Trail Braking — Understand It First</h2>
+
+    <p>Trail braking appears in all four books and is consistently identified as one of the last things a driver learns to do well. Here's the model without the mysticism.</p>
+
+    <div class="card orange">
+      <h4>What Trail Braking Is</h4>
+      <p>Continuing to apply diminishing brake pressure into the corner — well past the turn-in point — rather than completing all braking in a straight line. The braking "trails off" as cornering builds. You're spending the traction budget on both simultaneously, riding the rim of the traction circle through the transition.</p>
+    </div>
+
+    <div class="card green">
+      <h4>Why It Works</h4>
+      <p>Trail braking keeps weight on the front tires (improving front traction and turn-in response) and reduces rear lateral traction (reducing entry understeer). It also allows you to brake slightly later because you're still slowing down while turning. It's not a hack — it's the physically correct way to "ride the rim" at corner entry.</p>
+    </div>
+
+    <div class="card">
+      <h4>When It Doesn't Work</h4>
+      <p>In very fast corners — braking against partial throttle changes pitch attitude at a moment when the car is on a knife edge. In bumpy corners — modulation becomes unpredictable. When you're still learning — the footwork is complex and the margin for error is small.</p>
+    </div>
+
+    <div class="key-insight">
+      <div class="label">For Your Level Right Now</div>
+      <p>Don't force it. Understand the model, feel for when you're unconsciously doing it already (you probably are in some corners), and let it develop naturally. Smith's exact advice: <strong>"While you are learning the technique, during the race, if in doubt don't. Slow in and fast out beats fast in and slow out."</strong></p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 08</div>
+    <h2>Most Common Mistakes at Your Level</h2>
+
+    <p>These are the errors that appear consistently across all four books when describing the upper novice / lower intermediate driver. You don't need to go looking for these — they'll find you. The fix for each follows the same logic as the sections above.</p>
+
+    <div class="mistake-list">
+      <div class="mistake">
+        <div class="mistake-side problem">
+          <div class="label">Mistake</div>
+          <p><strong>Early apex.</strong> Turning in too soon, clipping the inside of the corner early, then running out of track on exit and either lifting or running wide.</p>
+        </div>
+        <div class="mistake-side fix">
+          <div class="label">Fix</div>
+          <p>Delay the turn-in. Resist the urge. The corner will come to you. A later turn-in means a later apex and an exit that opens up rather than closes.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-side problem">
+          <div class="label">Mistake</div>
+          <p><strong>Choking the exit.</strong> Adding or holding steering lock past the apex. The car understeers, you can't get on the throttle, and you're fighting the car to the end of the corner.</p>
+        </div>
+        <div class="mistake-side fix">
+          <div class="label">Fix</div>
+          <p>Almost always caused by an early apex. Fix the turn-in point and the exit opens automatically. After the apex, the wheel should only ever be unwinding.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-side problem">
+          <div class="label">Mistake</div>
+          <p><strong>Looking at the wrong place.</strong> Eyes on the apex when you should be looking at exit. Eyes on the car ahead instead of the track. Feeling rushed and late everywhere.</p>
+        </div>
+        <div class="mistake-side fix">
+          <div class="label">Fix</div>
+          <p>Force your eyes one phase ahead. At turn-in, look for the apex. At apex, look for the exit. At exit, look down the straight. It feels wrong at first; it isn't.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-side problem">
+          <div class="label">Mistake</div>
+          <p><strong>Braking too late instead of learning to brake later.</strong> Chasing the deepest possible braking point before the technique is consistent. Results in overcooked entries and time lost managing the aftermath.</p>
+        </div>
+        <div class="mistake-side fix">
+          <div class="label">Fix</div>
+          <p>Brake slightly early, manage the corner cleanly, and focus on exit. "When you brake a little early you lose very little time and have time to analyze the situation" (Smith). Late braking is the last thing to optimize, not the first.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-side problem">
+          <div class="label">Mistake</div>
+          <p><strong>Driving at 10/10ths too soon.</strong> Pushing before the mental model is built. Variance is high, mistakes are repeated, learning slows down.</p>
+        </div>
+        <div class="mistake-side fix">
+          <div class="label">Fix</div>
+          <p>Drive at 8/10ths with conscious intent. Pick one thing to focus on per session. Consistency at 8/10ths builds the neural pathways that make 9/10ths feel like 7/10ths later.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-side problem">
+          <div class="label">Mistake</div>
+          <p><strong>Throttle-then-steer on corner exit.</strong> Waiting until the car is fully straight to apply power. Losing most of the exit acceleration advantage.</p>
+        </div>
+        <div class="mistake-side fix">
+          <div class="label">Fix</div>
+          <p>Apply throttle as you begin unwinding the wheel. They overlap. Power goes on while you're still cornering — that's correct. The traction circle has room for both simultaneously on exit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 09</div>
+    <h2>Your Session-by-Session Progression</h2>
+
+    <p>The worst way to improve is to chase everything at once. The books consistently recommend one conscious focus per session, letting everything else run on the level it's already at. Here's a suggested order of priority for where you are now.</p>
+
+    <div class="progression">
+      <div class="prog-step">
+        <div class="prog-num">1</div>
+        <div class="prog-content">
+          <h4>Build Your Reference Points</h4>
+          <p>Before optimizing any technique, build a dense mental map of the circuit. Identify a braking marker, turn-in mark, apex point, and exit point for every corner. The more specific, the better. A session spent on this will pay dividends for every session after it.</p>
+        </div>
+      </div>
+      <div class="prog-step">
+        <div class="prog-num">2</div>
+        <div class="prog-content">
+          <h4>Practice Looking Ahead</h4>
+          <p>Deliberately push your vision one phase ahead in every corner. This feels uncomfortable at first — trust it. You'll find the car goes where you're looking more than you realized.</p>
+        </div>
+      </div>
+      <div class="prog-step">
+        <div class="prog-num">3</div>
+        <div class="prog-content">
+          <h4>Late Apex, Every Corner</h4>
+          <p>Delay your turn-in. Feel the corner open up in front of you on exit instead of closing down. This single change fixes early apexes, exit understeer, and choking all at once. You'll probably feel like you're arriving at the apex too late — that's probably exactly right.</p>
+        </div>
+      </div>
+      <div class="prog-step">
+        <div class="prog-num">4</div>
+        <div class="prog-content">
+          <h4>Corner Exit Throttle</h4>
+          <p>Focus on getting the throttle on earlier and rolling it on more smoothly. Not harder — earlier. Pick the point where you <em>want</em> to apply throttle before the corner and commit to it, even if it feels too soon. Then evaluate the exit.</p>
+        </div>
+      </div>
+      <div class="prog-step">
+        <div class="prog-num">5</div>
+        <div class="prog-content">
+          <h4>Smooth Brake Release</h4>
+          <p>Focus on the quality of your brake release at turn-in. Progressive, not sudden. The nose should come down gradually as you steer in. This is what makes Phase 1 work and what sets up Phase 2.</p>
+        </div>
+      </div>
+      <div class="prog-step">
+        <div class="prog-num">6</div>
+        <div class="prog-content">
+          <h4>Braking Depth (Last)</h4>
+          <p>Only after the above are consistent: work on braking later. Not as the first thing you optimize — as the last. A lap of early braking done perfectly is faster than a lap of late braking done inconsistently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 10</div>
+    <h2>The Mental Side — What the Books Agree On</h2>
+
+    <p>All four books converge on a few mental principles that don't get discussed enough in HPDE settings.</p>
+
+    <div class="card yellow">
+      <h4>Subconscious Driving Is the Goal</h4>
+      <p>Speed comes from getting technique to the level where it runs automatically — where you're not thinking about braking points and apex targets consciously, because the reference points are in your RAM and the responses are ballistic. The conscious mind then becomes available for reading the car, adapting to changing conditions, and managing the situation. You're not fast because you think faster. You're fast because you've stopped needing to think about certain things at all.</p>
+    </div>
+
+    <div class="card">
+      <h4>Visualization Is Training</h4>
+      <p>Mental laps done vividly — with actual steering inputs, actual feelings, actual timing — lay down the same neural pathways as physical laps. Used correctly before a session or between runs, visualization activates what your body already knows and primes the right responses. The test: can you drive the circuit in your head without hesitation? If not, the gaps in your mental map are the gaps in your performance.</p>
+    </div>
+
+    <div class="card green">
+      <h4>Consistency First, Speed Second</h4>
+      <p>Bentley's formulation in <em>Speed Secrets</em>: drive at 8/10ths with precision and build from there. A driver who can hit the same reference points every lap at 8/10ths will improve faster than one who hits 10/10ths occasionally and gets different results every time. Consistency is the signal that technique is actually working. Variability is the signal that something is still being done consciously and imprecisely.</p>
+    </div>
+
+    <blockquote>
+      "After a certain amount of skill and experience has been attained, 98% of this business is mental."
+      <cite>— Carroll Smith, Drive to Win</cite>
+    </blockquote>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Quick Reference</div>
+    <h2>Before You Go Out — One-Page Checklist</h2>
+
+    <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">One focus per session. Pick one item from each category, not all of them.</p>
+
+    <h3>Before the session</h3>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>Visualize the lap: turn-in points, apex points, exit points. Where do you hesitate?</div>
+      <div class="check-item"><div class="check-box"></div>Decide on one technical focus for this session. Write it down.</div>
+      <div class="check-item"><div class="check-box"></div>Identify 2–3 corners where you'll specifically apply that focus.</div>
+    </div>
+
+    <h3>During the session (in order of priority)</h3>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>Eyes: look to the next phase, not the current one.</div>
+      <div class="check-item"><div class="check-box"></div>Turn-in: later than feels right. Let the corner come to you.</div>
+      <div class="check-item"><div class="check-box"></div>After the apex: is the wheel only unwinding? If not, why?</div>
+      <div class="check-item"><div class="check-box"></div>Throttle: are you rolling it on, or waiting until straight to apply?</div>
+      <div class="check-item"><div class="check-box"></div>Inputs: can you feel the transitions, or are they abrupt?</div>
+    </div>
+
+    <h3>After the session</h3>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>In which corners did your focus work? In which didn't it?</div>
+      <div class="check-item"><div class="check-box"></div>Was there any moment where corrective inputs were needed? What caused them?</div>
+      <div class="check-item"><div class="check-box"></div>What's one thing to carry into the next session?</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  Synthesized from Going Faster (Skip Barber Racing School) · Speed Secrets (Ross Bentley) · Ultimate Speed Secrets (Ross Bentley) · Drive to Win (Carroll Smith)
+  <br><br>
+  Also recommended: A Twist of the Wrist — Keith Code · Data logging + video review for accelerated feedback
+</footer>
+
+</body>
+</html>
