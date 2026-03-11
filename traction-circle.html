@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MSWHKRHSLB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MSWHKRHSLB');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Traction Circle — The Performance Driving Field Guide</title>
+<meta content="Tires generate a fixed maximum force. Braking, steering, and accelerating all draw from the same account — simultaneously." name="description"/>
+<meta content="The Traction Circle — The Performance Driving Field Guide" property="og:title"/>
+<meta content="Tires generate a fixed maximum force. Braking, steering, and accelerating all draw from the same account — simultaneously." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="#0f0f0f" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header chapter-header">
+<div class="header-kicker"><a href="index.html" style="color:var(--red);text-decoration:none;">Performance Driving · Field Guide</a></div>
+<h1 class="header-title">The Traction Circle</h1>
+<div class="chapter-meta-row">
+<span class="ch-num-lg">03</span>
+<span class="ch-sep">·</span>
+<span class="ch-tag-lg">All the Grip You Have</span>
+</div>
+</header>
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-home" href="index.html">← Home</a><a href="survival-reactions.html">01 The 7 Survival Reactions</a><a href="attention-budget.html">02 The $10 Attention Budget</a><a class="nav-active" href="traction-circle.html">03 The Traction Circle</a><a href="corner-phases.html">04 The Four Phases of a Corner</a><a href="fundamental-truths.html">05 Four Fundamental Truths of Cornering</a><a href="throttle-control.html">06 Throttle Control</a><a href="turn-point.html">07 The Turn-Point</a><a href="vision.html">08 Vision</a><a href="steering.html">09 Steering</a><a href="braking.html">10 Braking</a><a href="slip-angles.html">11 Slip Angles</a><a href="smooth-inputs.html">12 Smooth Inputs</a><a href="drivetrain.html">13 Know Your Drivetrain</a><a href="common-mistakes.html">14 Common Mistakes</a><a href="mental-game.html">15 The Mental Game</a><a href="session-checklist.html">16 Session Checklist</a><a href="further-reading.html">Further Reading</a>
+</div>
+</nav>
+<main class="page-body">
+<article>
+<div class="ch-meta">
+<span class="ch-num">03</span>
+<span class="ch-tag">Tire Physics</span>
+</div>
+<h2 class="ch-title">The Traction Circle</h2>
+<p>Every technique discussed in this guide ultimately rests on a single physical fact: <strong>your tires have a finite amount of grip available at any given moment, and that grip has to serve all three demands simultaneously — braking, cornering, and acceleration.</strong> These demands don't have separate budgets. They draw from the same pool. Understanding this doesn't just explain <em>what</em> to do; it explains <em>why</em> doing it correctly is non-negotiable.</p><figure class="diagram">
+<figcaption>The Traction Circle — your total grip budget</figcaption>
+<svg aria-label="Traction circle diagram showing how braking, cornering, and acceleration forces share the same grip budget" role="img" viewbox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+<!-- Background -->
+<rect fill="#f9f9f9" height="340" rx="10" width="340"></rect>
+<!-- Grid cross -->
+<line stroke="#e0e0e0" stroke-width="1" x1="170" x2="170" y1="24" y2="316"></line>
+<line stroke="#e0e0e0" stroke-width="1" x1="24" x2="316" y1="170" y2="170"></line>
+<!-- Outer circle (physical limit visual guide) -->
+<circle cx="170" cy="170" fill="none" r="128" stroke="#e8e8e8" stroke-dasharray="4,4" stroke-width="1"></circle>
+<!-- Traction circle fill -->
+<circle cx="170" cy="170" fill="rgba(192,57,43,0.06)" r="108" stroke="#c0392b" stroke-width="2.5"></circle>
+<!-- Quadrant tone overlays -->
+<path d="M170,170 L170,62 A108,108 0 0,1 278,170 Z" fill="rgba(180,83,9,0.05)"></path>
+<path d="M170,170 L278,170 A108,108 0 0,1 170,278 Z" fill="rgba(26,107,58,0.06)"></path>
+<!-- Axis arrows -->
+<!-- BRAKE arrow (up) -->
+<line stroke="#b45309" stroke-width="2.5" x1="170" x2="170" y1="62" y2="32"></line>
+<polygon fill="#b45309" points="170,24 165,36 175,36"></polygon>
+<!-- ACCEL arrow (down) -->
+<line stroke="#1a6b3a" stroke-width="2.5" x1="170" x2="170" y1="278" y2="308"></line>
+<polygon fill="#1a6b3a" points="170,316 165,304 175,304"></polygon>
+<!-- LEFT arrow -->
+<line stroke="#1e4d7b" stroke-width="2.5" x1="62" x2="32" y1="170" y2="170"></line>
+<polygon fill="#1e4d7b" points="24,170 36,165 36,175"></polygon>
+<!-- RIGHT arrow -->
+<line stroke="#1e4d7b" stroke-width="2.5" x1="278" x2="308" y1="170" y2="170"></line>
+<polygon fill="#1e4d7b" points="316,170 304,165 304,175"></polygon>
+<!-- Axis labels -->
+<text fill="#b45309" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em" text-anchor="middle" x="170" y="19">BRAKE</text>
+<text fill="#1a6b3a" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em" text-anchor="middle" x="170" y="334">ACCEL</text>
+<text fill="#1e4d7b" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em" text-anchor="middle" transform="rotate(-90,16,167)" x="16" y="167">LEFT</text>
+<text fill="#1e4d7b" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em" text-anchor="middle" transform="rotate(90,324,167)" x="324" y="167">RIGHT</text>
+<!-- Example vectors -->
+<!-- Pure braking (up) — dashed -->
+<line opacity="0.7" stroke="#b45309" stroke-dasharray="5,3" stroke-width="2" x1="170" x2="170" y1="170" y2="68"></line>
+<circle cx="170" cy="68" fill="#b45309" opacity="0.8" r="5"></circle>
+<!-- Pure cornering (right) — dashed -->
+<line opacity="0.7" stroke="#1e4d7b" stroke-dasharray="5,3" stroke-width="2" x1="170" x2="272" y1="170" y2="170"></line>
+<circle cx="272" cy="170" fill="#1e4d7b" opacity="0.8" r="5"></circle>
+<!-- Combined braking + cornering — solid (hits circle edge) -->
+<line opacity="0.85" stroke="#c0392b" stroke-width="2.5" x1="170" x2="246" y1="170" y2="94"></line>
+<circle cx="246" cy="94" fill="#c0392b" r="6"></circle>
+<!-- Labels for vectors -->
+<text fill="#b45309" font-family="Inter,system-ui,sans-serif" font-size="10" opacity="0.9" x="178" y="108">pure braking</text>
+<text fill="#1e4d7b" font-family="Inter,system-ui,sans-serif" font-size="10" opacity="0.9" x="207" y="167">pure turn</text>
+<text fill="#c0392b" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="600" x="248" y="87">combined →</text>
+<!-- Center -->
+<circle cx="170" cy="170" fill="#111" r="4"></circle>
+<!-- Center label -->
+<text fill="#737373" font-family="Inter,system-ui,sans-serif" font-size="10" text-anchor="middle" x="170" y="192">total grip = fixed</text>
+</svg>
+<p class="diagram-note">Three vectors — pure braking (amber), pure turning (blue), and combined (red) — each reach the circle edge. The circle is all the grip you have. Combined forces share the same budget, so combining braking and steering uses each partially.</p>
+</figure>
+
+<div class="principle">
+<div class="callout-label">The Core Rule</div>
+<p>You can brake hard <em>or</em> corner hard, but very rarely both at maximum intensity simultaneously. Every percent of braking force carried into a corner is a percent of cornering force you've surrendered. The goal — "riding the rim" of the circle — means always using close to the maximum available grip, but never demanding more than the tire can give.</p>
+</div>
+<h3>What "Riding the Rim" Looks Like Lap to Lap</h3>
+<p>At the start of braking: all grip goes to deceleration (top of the circle). As you approach the corner, you progressively release the brakes and transfer that budget to cornering. At the apex: nearly all grip is lateral. On exit: you smoothly transition from pure cornering toward pure acceleration. Any abrupt input — a late stab of the brake, a snap of the wheel, a jerked throttle — risks pushing outside the circle. Outside the circle is where tires break loose.</p>
+<p>The circle also explains why corner exit speed is the most important metric in lap time, even though it might seem counterintuitive. A small increase in exit speed compounds across the entire following straight. And exit speed is determined not by where you place your apex, but by the quality of the arc you build in the second phase of the corner — which sets up how early you can begin your throttle roll-on. We'll examine that arc in detail in the next section.</p>
+<div class="reflect">
+<div class="reflect-hd">
+<div class="reflect-badge">Reflect</div>
+</div>
+<ol>
+<li>Have you ever felt the rear step out or the front push mid-corner unexpectedly? Looking back, what were you asking of the tire simultaneously — braking plus cornering? Cornering plus too much throttle too early?</li>
+<li>On your fastest recent lap, were you using most of the available traction circle, or a fraction of it? What would safely exploring more of the circle look like for your current skill level?</li>
+</ol>
+</div>
+</article>
+<nav class="chapter-nav"><a class="prev" href="attention-budget.html">
+<span class="cn-dir">← Previous</span>
+<span class="cn-title">The $10 Attention Budget</span>
+<span class="cn-tag">The Finite Resource</span>
+</a><a class="next" href="corner-phases.html">
+<span class="cn-dir">Next →</span>
+<span class="cn-title">The Four Phases of a Corner</span>
+<span class="cn-tag">The Anatomy of Speed</span>
+</a></nav>
+</main>
+<footer>
+<p><strong>The Performance Driving Field Guide</strong>  ·  Synthesized from six foundational books on performance driving and riding</p>
+<p style="margin-top:10px;font-size:11px;">Going Faster  ·  Speed Secrets  ·  Ultimate Speed Secrets  ·  Drive to Win  ·  A Twist of the Wrist II  ·  Beyond the Apex</p>
+<p style="margin-top:16px;font-size:11px;">Not a substitute for seat time.</p>
+</footer>
+</body>
+</html>
